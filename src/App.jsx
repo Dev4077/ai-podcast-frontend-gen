@@ -30,7 +30,6 @@ export default function App() {
             .filter((g) => g.length > 0);
     }, [guestsText]);
 
-    const API_BASE = (import.meta.env && import.meta.env.VITE_API_BASE) || '';
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -38,7 +37,7 @@ export default function App() {
         setResult(null);
         setLoading(true);
         try {
-            const resp = await fetch(`http://localhost:5000/api/generate-podcast`, {
+            const resp = await fetch(`https://ai-podcast-backend-gen.onrender.com/api/generate-podcast`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ topic, host, guestname: guestsArray, info, hostGender, guestGender })
