@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+const API_BASE = "https://ai-podcast-backend-gen.onrender.com";
 
 function Label({ htmlFor, children }) {
     return (
